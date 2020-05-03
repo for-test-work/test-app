@@ -1,0 +1,32 @@
+:host {
+  ::ng-deep {
+    .mat-card-header-text {
+      width: 95%;
+      margin: 0;
+    }
+  }
+}
+
+.card-title {
+
+  & .news-title {
+    max-width: 470px;
+    overflow: hidden;
+    font-size: 1rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+.card-content {
+  display: flex;
+
+  & img {
+    width: 40%;
+    padding: 1rem;
+  }
+
+  & .content {
+    margin-left: 1rem;
+  }
+}

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/root/home.component';
 import { PreloadingStrategyService } from './core/services/preloading-strategy.service';
-import { AuthGuard } from './core/services/auth.guard';
+import { AuthGuard } from './core/guards/auth.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
