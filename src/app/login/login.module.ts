@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatCardModule, MatInputModule, MatButtonModule } from '@angular/material';
-
-import { LoginComponent } from './root/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatCardModule, MatInputModule, MatButtonModule, MatSnackBarModule } from '@angular/material';
 import { RoutingModule } from './routing.module';
+import { LoginComponent } from './root/login.component';
 
 @NgModule({
   declarations: [LoginComponent],
@@ -12,7 +12,10 @@ import { RoutingModule } from './routing.module';
     RoutingModule,
     MatCardModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatSnackBarModule
   ]
 })
 export class LoginModule {
