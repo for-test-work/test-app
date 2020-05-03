@@ -1,0 +1,17 @@
+<mat-toolbar>
+    <nav class="nav">
+      <mat-icon class="links" routerLink="/">home</mat-icon>
+      <a class="links" routerLink="/news" routerLinkActive="active-link">News</a>
+      <a class="links" routerLink="/user-profile" routerLinkActive="active-link">User Profile</a>
+    </nav>
+
+  <div>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon class="mat-icon-small">person_outline</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="/login">Login</button>
+      <button mat-menu-item>Logout</button>
+    </mat-menu>
+  </div>
+</mat-toolbar>
