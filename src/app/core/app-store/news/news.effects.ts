@@ -13,7 +13,7 @@ export class NewsEffects {
     ofType(NewsActions.LoadNews),
     mergeMap(() => this.newsService.getNews()
       .pipe(
-        map((data: News[]) => (new NewsLoadedSuccess({ news: data }))),
+        map((data: News[]) => (new NewsLoadedSuccess(data))),
           catchError(() => of(new NewsLoadedError())
         ))
     )

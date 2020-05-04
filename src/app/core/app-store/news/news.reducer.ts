@@ -5,27 +5,17 @@ export interface NewsState {
   news: News[];
 }
 
-const initialState: NewsState = {
-  news: []
-};
-
-export function newsReducer(state = initialState, action: NewsUnion) {
+export function newsReducer(state = [], action: NewsUnion) {
   switch (action.type) {
     case NewsActions.NewsLoadedSuccess:
-      return {
+      return [
         ...state,
-        news: action.payload.news
-      };
+        ...action.payload
+      ];
     case NewsActions.NewsLoadedError:
-      return {
-        ...state,
-        news: []
-      };
+      return state;
     case NewsActions.Logout:
-      return {
-        ...state,
-        news: []
-      };
+      return state;
     default:
       return state;
   }

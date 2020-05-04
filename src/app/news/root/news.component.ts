@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { filter, map } from 'rxjs/operators';
+import { filter } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 
@@ -25,9 +25,8 @@ export class NewsComponent extends BaseComponent implements OnInit {
     this.store.dispatch(new LoadNews());
 
     this.subs = this.news$.pipe(
-      filter((data: any) => Boolean(data.news.length)),
-      map(data => data.news)
-    ).subscribe((data: News[]) => this.news = data);
+      filter((data: News[]) => Boolean(data.length)),
+    ).subscribe((data: News[]) => console.log('News', data));
   }
 
 }

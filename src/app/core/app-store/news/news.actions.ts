@@ -15,7 +15,7 @@ export class LoadNews implements Action {
 export class NewsLoadedSuccess implements Action {
   readonly type = NewsActions.NewsLoadedSuccess;
 
-  constructor(public payload: { news: News [] }) {
+  constructor(public payload: News[]) {
   }
 }
 
