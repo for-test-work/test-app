@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RoutingModule } from './routing.module';
-import { NewsServiceModule } from '../core/services/news-service/news-service.module';
-import { NewsComponent } from './root/news.component';
 import { MatCardModule } from '@angular/material';
+import { RoutingModule } from './routing.module';
 import { NewsItemComponent } from './news-item/news-item.component';
+import { AppStoreModule } from '../core/app-store/app-store.module';
+import { NewsComponent } from './root/news.component';
 
 @NgModule({
   declarations: [
@@ -14,8 +14,8 @@ import { NewsItemComponent } from './news-item/news-item.component';
   imports: [
     CommonModule,
     RoutingModule,
-    NewsServiceModule,
-    MatCardModule
+    MatCardModule,
+    AppStoreModule
   ]
 })
 export class NewsModule {
