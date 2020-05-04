@@ -1,6 +1,5 @@
-import { News } from '../interfaces/news';
-import { NewsUnion } from './news.actions';
-import { NewsActions } from './news.actions';
+import { News } from '../../interfaces/news';
+import { NewsActions, NewsUnion } from './news.actions';
 
 export interface NewsState {
   news: News[];
@@ -18,6 +17,11 @@ export function newsReducer(state = initialState, action: NewsUnion) {
         news: action.payload.news
       };
     case NewsActions.NewsLoadedError:
+      return {
+        ...state,
+        news: []
+      };
+    case NewsActions.Logout:
       return {
         ...state,
         news: []

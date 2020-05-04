@@ -1,13 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-import { FormGroup } from '@angular/forms';
-import { Validators } from '@angular/forms';
-import { BaseComponent } from '../../core/base-component';
-import { AuthService } from '../../core/services/auth.service';
-import { catchError, switchMap } from 'rxjs/operators';
-import { of } from 'rxjs';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+
+import { BaseComponent } from '../../core/base-component';
+import { AuthService } from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -37,8 +34,8 @@ export class LoginComponent extends BaseComponent implements OnInit {
 
   private createForm() {
     this.form = this.fb.group({
-      userName: [null, [Validators.required, Validators.minLength(4)]],
-      password: [null, [Validators.required, Validators.minLength(4)]],
+      userName: [null, Validators.required],
+      password: [null, Validators.required],
     });
   }
 

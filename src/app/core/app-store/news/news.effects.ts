@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { map, mergeMap, catchError } from 'rxjs/operators';
-import { NewsService } from '../services/news-service/news.service';
-import { NewsActions } from './news.actions';
-import { NewsLoadedSuccess } from './news.actions';
-import { News } from '../interfaces/news';
 import { of } from 'rxjs';
-import { NewsLoadedError } from './news.actions';
+import { NewsService } from '../../services/news.service';
+import { NewsActions, NewsLoadedSuccess, NewsLoadedError } from './news.actions';
+import { News } from '../../interfaces/news';
 
 @Injectable()
 export class NewsEffects {

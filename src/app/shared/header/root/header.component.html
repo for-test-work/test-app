@@ -10,8 +10,8 @@
       <mat-icon class="mat-icon-small">person_outline</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item routerLink="/login">Login</button>
-      <button mat-menu-item>Logout</button>
+      <button mat-menu-item routerLink="/login" *ngIf="!isAuthorized">Login</button>
+      <button mat-menu-item  *ngIf="isAuthorized" (click)="logout()">Logout</button>
     </mat-menu>
   </div>
 </mat-toolbar>

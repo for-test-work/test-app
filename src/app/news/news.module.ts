@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material';
 import { RoutingModule } from './routing.module';
 import { NewsItemComponent } from './news-item/news-item.component';
-import { AppStoreModule } from '../core/app-store/app-store.module';
+import { NewsStoreModule } from '../core/app-store/news/news-store.module';
 import { NewsComponent } from './root/news.component';
 
 @NgModule({
@@ -15,7 +15,7 @@ import { NewsComponent } from './root/news.component';
     CommonModule,
     RoutingModule,
     MatCardModule,
-    AppStoreModule
+    NewsStoreModule
   ]
 })
 export class NewsModule {

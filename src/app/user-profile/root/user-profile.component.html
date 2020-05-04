@@ -1,1 +1,10 @@
-<p>user-profile works!</p>
+<mat-card class="card">
+  <div>{{ 'Full Name' + ' - ' + user?.firstName + ' ' + user?.lastName}}</div>
+  <div>{{ 'Gender' + ' - ' + user?.gender + ' Age' +  user?.age}}</div>
+  <div>{{ 'Phone' + ' - ' + user?.phoneNumber }}</div>
+  <div>{{ 'Street Address' + ' - ' + user?.address?.streetAddress }}</div>
+  <div>{{ 'City' + ' - ' + user?.address?.city }}</div>
+  <div>{{ 'Street Address' + ' - ' + user?.address?.streetAddress }}</div>
+  <div>{{ 'State' + ' - ' + user?.address?.state }}</div>
+  <div>{{ 'Postal Code' + ' - ' + user?.address?.postalCode }}</div>
+</mat-card>

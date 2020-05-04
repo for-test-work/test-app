@@ -3,26 +3,28 @@ import { filter, map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 
-import { LoadNews } from '../../core/app-store/news.actions';
-import { NewsState } from '../../core/app-store/news.reducer';
+import { LoadNews } from '../../core/app-store/news/news.actions';
+import { NewsState } from '../../core/app-store/news/news.reducer';
 import { News } from '../../core/interfaces/news';
+import { BaseComponent } from '../../core/base-component';
 
 @Component({
   selector: 'app-news',
   templateUrl: './news.component.html',
   styleUrls: ['./news.component.scss']
 })
-export class NewsComponent implements OnInit {
+export class NewsComponent extends BaseComponent implements OnInit {
   public news: News[] = [];
   private news$: Observable<News[]> = this.store.select(state => state.news);
 
   constructor(private store: Store<NewsState>) {
+    super();
   }
 
   ngOnInit() {
     this.store.dispatch(new LoadNews());
 
-    this.news$.pipe(
+    this.subs = this.news$.pipe(
       filter((data: any) => Boolean(data.news.length)),
       map(data => data.news)
     ).subscribe((data: News[]) => this.news = data);
