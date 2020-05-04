@@ -26,7 +26,7 @@ export class NewsComponent extends BaseComponent implements OnInit {
 
     this.subs = this.news$.pipe(
       filter((data: News[]) => Boolean(data.length)),
-    ).subscribe((data: News[]) => console.log('News', data));
+    ).subscribe((data: News[]) => this.news = data);
   }
 
 }

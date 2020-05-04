@@ -15,7 +15,7 @@ export function newsReducer(state = [], action: NewsUnion) {
     case NewsActions.NewsLoadedError:
       return state;
     case NewsActions.Logout:
-      return state;
+      return [];
     default:
       return state;
   }

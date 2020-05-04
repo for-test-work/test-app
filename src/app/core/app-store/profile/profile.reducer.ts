@@ -14,18 +14,12 @@ export function profileReducer(state = initialState, action: ProfileUnion) {
     case ProfileActions.ProfileLoadedSuccess:
       return {
         ...state,
-        profile: action.payload.profile
+        ...action.payload
       };
     case ProfileActions.ProfileLoadedError:
-      return {
-        ...state,
-        profile: null
-      };
+      return state
     case ProfileActions.Logout:
-      return {
-        ...state,
-        profile: null
-      };
+      return state;
     default:
       return state;
   }

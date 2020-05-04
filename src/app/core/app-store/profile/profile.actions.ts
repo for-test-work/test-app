@@ -15,7 +15,7 @@ export class LoadProfile implements Action {
 export class ProfileLoadedSuccess implements Action {
   readonly type = ProfileActions.ProfileLoadedSuccess;
 
-  constructor(public payload: { profile: Profile }) {
+  constructor(public payload: Profile) {
   }
 }
 

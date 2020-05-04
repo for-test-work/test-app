@@ -6,6 +6,7 @@ import { Store } from '@ngrx/store';
 import { ProfileState } from '../../core/app-store/profile/profile.reducer';
 import { BaseComponent } from '../../core/base-component';
 import { Profile } from '../../core/interfaces/profile';
+import { LoadProfile } from '../../core/app-store/profile/profile.actions';
 
 @Component({
   selector: 'app-user-profile',
@@ -17,15 +18,17 @@ export class UserProfileComponent extends BaseComponent implements OnInit {
   private user$: Observable<Profile> = this.store.select(state => state.profile);
 
   constructor(private profileService: ProfileService,
+              private profileStore: Store<ProfileState>,
               private store: Store<ProfileState>) {
     super();
   }
 
   ngOnInit() {
+    this.profileStore.dispatch(new LoadProfile());
+
     this.subs = this.user$.
       pipe(
-      filter((data: any) => Boolean(data.profile)),
-      map(data => data.profile),
+      filter((data: Profile) => Boolean(data)),
       distinctUntilKeyChanged('firstName')
     )
       .subscribe((data: Profile) => this.user = data);

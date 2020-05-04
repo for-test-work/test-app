@@ -27,7 +27,6 @@ export class AuthService {
     if (user && (user.userName === this.userName && user.password === this.password)) {
       localStorage.setItem('isAuthorized', JSON.stringify(true));
       this.isAuthorized$.next(true);
-      this.profileStore.dispatch(new LoadProfile());
       return of(true).pipe(
         delay(400)
       );

@@ -14,7 +14,7 @@ export class ProfileEffects {
     ofType(ProfileActions.LoadProfile),
     mergeMap(() => this.profileService.getProfile()
       .pipe(
-        map((data: Profile) => (new ProfileLoadedSuccess({ profile: data }))),
+        map((data: Profile) => (new ProfileLoadedSuccess(data))),
         catchError(() => of(new ProfileLoadedError())
         ))
     )
