@@ -26,6 +26,13 @@ export class LoginComponent extends BaseComponent implements OnInit {
   }
 
   public onSubmit() {
+    this.form.markAllAsTouched();
+    this.form.get('userName').updateValueAndValidity();
+    this.form.get('password').updateValueAndValidity();
+
+    if (!this.form.valid) {
+      return;
+    }
     this.subs = this.authService.login(this.form.value).subscribe( {
       next: () => this.router.navigate(['user-profile']),
       error: err => this.snackBar.open(err, null, { duration: 3000 })

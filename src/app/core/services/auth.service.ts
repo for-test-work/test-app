@@ -6,7 +6,7 @@ import { delay } from 'rxjs/operators';
 import { Auth } from '../interfaces/auth';
 import { Store } from '@ngrx/store';
 import { ProfileState } from '../app-store/profile/profile.reducer';
-import { LoadProfile, Logout } from '../app-store/profile/profile.actions';
+import { Logout } from '../app-store/profile/profile.actions';
 import { ClearStore } from '../app-store/news/news.actions';
 import { NewsState } from '../app-store/news/news.reducer';
 
