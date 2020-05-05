@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfileService } from '../../core/services/profile.service';
 import { Observable } from 'rxjs';
-import { filter, map, distinctUntilKeyChanged } from 'rxjs/operators';
+import { filter, distinctUntilKeyChanged } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import { ProfileState } from '../../core/app-store/profile/profile.reducer';
 import { BaseComponent } from '../../core/base-component';
 import { Profile } from '../../core/interfaces/profile';
-import { LoadProfile } from '../../core/app-store/profile/profile.actions';
 
 @Component({
   selector: 'app-user-profile',
@@ -24,8 +23,6 @@ export class UserProfileComponent extends BaseComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.profileStore.dispatch(new LoadProfile());
-
     this.subs = this.user$.
       pipe(
       filter((data: Profile) => Boolean(data)),
